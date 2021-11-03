@@ -1,6 +1,6 @@
 <template>
   <layout :title="state.name">
-    <van-collapse v-model="state.activeName" accordion>
+    <van-collapse v-model="state.activeName" accordion >
       <van-collapse-item
         :key="index"
         v-for="(item, index) in state.list"

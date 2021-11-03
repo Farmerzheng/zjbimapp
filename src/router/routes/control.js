@@ -38,7 +38,15 @@ export default [{
     index: 1
   },
   component: () => import('@/views/safety/control/addSurveyData.vue')
-} ,{
+}, {
+  path: "/addSurveyMessage",
+  name: "addSurveyMessage",
+  meta: {
+    title: "添加测点信息",
+    index: 1
+  },
+  component: () => import('@/views/safety/control/addSurveyMessage.vue')
+}  ,{
   path: "/surveyCommand",
   name: "surveyCommand",
   meta: {

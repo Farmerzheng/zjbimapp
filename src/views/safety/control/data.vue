@@ -35,7 +35,7 @@ export default {
   setup() {
     const state = reactive({
       list: [],
-      loading: false,
+      loading: true,
       finished: false,
       value: "",
     });

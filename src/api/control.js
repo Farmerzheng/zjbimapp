@@ -72,6 +72,26 @@ export function nextMeasurePoint(params) {
   })
 }
 /**
+ * 添加测点信息
+ */
+ export function addMeasureMsg(params) {
+  return request({
+    url: url + '/measurePoint/addInit',
+    method: 'post',
+    params: params
+  })
+}
+/**
+ * 保存测点信息
+ */
+ export function saveMeasureMsg(params) {
+  return request({
+    url: url + '/measurePoint/addData',
+    method: 'post',
+    params: params
+  })
+}
+/**
  * 测点数据查询
  */
 export function getPointDataList(params) {

@@ -38,6 +38,7 @@
   </layout>
 </template>
 <script>
+import { Toast } from "vant";
 import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { measurePointType, addMeasurePoint } from "@/api/control";
@@ -100,7 +101,13 @@ export default {
         parentId: state.guid,
       });
 
-      console.log(res)
+      // console.log(res)
+      if (res.code == 0) {
+        Toast("添加成功");
+        setTimeout(function () {
+          route.back();
+        }, 1000);
+      }
     };
 
     return {
