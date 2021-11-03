@@ -1,0 +1,10 @@
+export const SET_TOKEN = 'SET_TOKEN'
+export const SET_USER_INFO = 'SET_USER_INFO'
+export const SET_USER_PHONE = 'SET_USER_PHONE'
+export const SET_PROJECT_NAME = 'SET_PROJECT_NAME'
+export const SET_PROJECT_ID = 'SET_PROJECT_ID'
+export const SET_DEPT_NAME = 'SET_DEPT_NAME'
+export const SET_DEPT_ID = 'SET_DEPT_ID'
+export const SET_MENU_ID = 'SET_MENU_ID'
+export const SET_TABBAR_ACTIVE = 'SET_TABBAR_ACTIVE'
+ 

@@ -1,0 +1,56 @@
+.nav-header {
+  padding-top: 46px;
+
+  .van-nav-bar {
+    background-color: transparent;
+
+    .van-nav-bar__title {
+      font-size: 17px;
+      font-weight: bold;
+      color: #000000;
+      // line-height: 17px;
+    }
+
+    .van-icon {
+      color: #000000;
+    }
+
+    .van-nav-bar__text {
+      color: #000000;
+    }
+  }
+}
+.main-container {
+  min-height: calc(100vh - 46px);
+  overflow-x: scroll;
+  .group-title {
+    color: #494949;
+    font-size: 15px;
+    padding: 20px;
+  }
+  .group-grid-container {
+    box-sizing: border-box;
+    .group-grid-icon {
+      width: 36px;
+      height: auto;
+      display: inline-block;
+    }
+    .van-grid-item .van-grid-item__content {
+      padding: 5px 0 0;
+      border-radius: 7px;
+      background: #ffffff;
+      // border: 0px solid #f0e8e8;
+      box-shadow: 0px 1px 2px 0px #eceef1;
+    }
+    .van-grid-item .van-grid-item__content--surround::after,
+    .van-grid-item .van-grid-item__content::after {
+      border-width: 0;
+    }
+    .van-grid-item__text{
+      color: #373D45;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
