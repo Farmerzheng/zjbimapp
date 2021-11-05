@@ -68,7 +68,6 @@ export default {
       let res = await addMeasureMsg({
         guid: state.guid,
       });
-      console.log(res.data);
       // 存储需要传给数据库的字段
       state.measurePointId = res.data.measurePointId;
       state.tableName = res.data.tableName;
@@ -111,7 +110,7 @@ export default {
       console.log(JSON.stringify(pramas));
       // 保存信息
       let res = await saveMeasureMsg({
-        jsonData: JSON.stringify(pramas),
+        jsonData: encodeURI(JSON.stringify(pramas)),
       });
 
       console.log(res);
