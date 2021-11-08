@@ -2,6 +2,28 @@ import axios from "@/utils/request";
 const url = '/progress/app'
 
 /**
+ * 支盘属性数据
+ */
+ export function struectureDescList (params) {
+  return axios({
+    url:'/progress/app/progressStruectureDesc/list',
+    method: 'get',
+    params: params
+  })
+}
+
+/**
+ * 属性管理
+ */
+ export function getProgressProperty (params) {
+  return axios({
+    url:'/progress/api/progressBridgeStructure/getStructureByParent',
+    method: 'post',
+    params: params
+  })
+}
+
+/**
  * 进度统计查询
  */
 export function getProgressAnalysisList (params) {

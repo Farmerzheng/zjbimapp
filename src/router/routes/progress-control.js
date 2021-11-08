@@ -28,4 +28,25 @@ export default [{
     title: "预警查询"
   },
   component: () => import('@/views/progress-control/forewarning.vue')
+}, {
+  path: "/progressProperty",
+  name: "progressProperty",
+  meta: {
+    title: "属性管理"
+  },
+  component: () => import('@/views/progress-control/progressProperty.vue')
+}, {
+  path: "/propertyList",
+  name: "propertyList",
+  meta: {
+    title: "属性列表"
+  },
+  component: () => import('@/views/progress-control/propertyList.vue')
+}, {
+  path: "/editProperty",
+  name: "editProperty",
+  meta: {
+    title: "编辑属性"
+  },
+  component: () => import('@/views/progress-control/editProperty.vue')
 }]

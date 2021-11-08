@@ -19,10 +19,10 @@
       @load="onLoad"
     >
       <van-cell
-        v-for="item in state.list"
-        :key="item"
-        :title="item.name"
-        @click="() => toDetail(item)"
+        v-for="(item,index) in state.list"
+        :key="index"
+        :title="item.sturctureName"
+        @click="() => toDetail(item.code1)"
       />
     </van-list>
   </layout>

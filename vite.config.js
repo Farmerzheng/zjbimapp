@@ -28,6 +28,7 @@ export default ({ command }) => {
         }
       },
       cors: true
-    }
+    },
+    lintOnSave: true
   }
 }
