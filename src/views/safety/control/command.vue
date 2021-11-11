@@ -207,6 +207,7 @@ export default {
           fileUrl: item.fileUrl,
         })
       })
+      console.log(list);
       state.list = list
     }
     const getFolderList = async ({ guid }) => {

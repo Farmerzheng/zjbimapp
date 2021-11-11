@@ -44,7 +44,6 @@
       // border-bottom: 1px solid #333;
       padding: 0 16px;
       line-height: 24px;
-      height: 24px;
       font-size: 16px;
     }
     &__head {
@@ -54,55 +53,55 @@
 }
 </style>
 <script>
-import { reactive, ref, onMounted } from 'vue'
-import { Toast } from 'vant'
-import { useRoute, useRouter } from 'vue-router'
-import { beamMakingTaskDetail } from '@/api/beam'
+import { reactive, ref, onMounted } from "vue";
+import { Toast } from "vant";
+import { useRoute, useRouter } from "vue-router";
+import { beamMakingTaskDetail } from "@/api/beam";
 export default {
-  name: 'BeamMakingTaskDetail',
+  name: "BeamMakingTaskDetail",
   setup(props) {
     const state = reactive({
       loading: false,
       finished: false,
       list: [],
       params: {
-        taskGuid: '',
-        structureCode: '',
+        taskGuid: "",
+        structureCode: "",
       },
-    })
-    const router = useRouter()
-    const route = useRoute()
-    state.params.taskGuid = route.query.guid
+    });
+    const router = useRouter();
+    const route = useRoute();
+    state.params.taskGuid = route.query.guid;
     const search = async () => {
-      state.loading = true
-      state.finished = false
-      await onLoad()
-    }
+      state.loading = true;
+      state.finished = false;
+      await onLoad();
+    };
     const getList = async (params) => {
-      let res = await beamMakingTaskDetail(params)
+      let res = await beamMakingTaskDetail(params);
       if (res.code != 0) {
-        Toast(res.msg)
-        return
+        Toast(res.msg);
+        return;
       }
-      return res
-    }
+      return res;
+    };
     const onLoad = async () => {
-      state.list = []
-      state.loading = true
-      state.finished = false
-      let res = await getList(state.params)
+      state.list = [];
+      state.loading = true;
+      state.finished = false;
+      let res = await getList(state.params);
       if (res) {
-        state.list = res.data
-        state.loading = false
-        state.finished = true
+        state.list = res.data;
+        state.loading = false;
+        state.finished = true;
       }
-    }
+    };
     return {
       state,
       getList,
       onLoad,
       search,
-    }
+    };
   },
-}
+};
 </script>

@@ -10,17 +10,17 @@
   </div>
 </template>
 <script>
-import LoginForm from './loginForm.vue'
+import LoginForm from "./loginForm.vue";
 export default {
-  name: 'login',
+  name: "login",
   components: { LoginForm },
   data() {
-    return {}
+    return {};
   },
   mounted() {
     // this.muiBack('/')
-  }
-}
+  },
+};
 </script>
 <style lang="scss">
 input:-webkit-autofill,
@@ -37,7 +37,7 @@ input:-webkit-autofill:active {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background: url('../../../public/img/bg.png') no-repeat;
+  background: url("../../../public/img/bg.png") no-repeat;
   // background-size: cover;
 }
 .login-weaper {

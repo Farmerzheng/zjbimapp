@@ -1,0 +1,4894 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+  <html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>导出Swagger文档到Word</title>
+      <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+      <style type="text/css">
+          .knife4j-word-body{
+              width: 90%;
+              margin: 20px auto;
+              font-family:"宋体";
+              font-size: 16px;
+          }
+          .knife4j-word-row{
+              position: relative;
+              height: auto;
+              margin-right: 0;
+              margin-left: 0;
+              zoom: 1;
+              display: block;
+              box-sizing: border-box;
+          }
+          .knife4j-word-line{
+              height: 35px;
+              line-height:35px;
+          }
+          .knife4j-word-divider{
+              height: 1px;
+              background: #e8e8e8;
+              border-bottom: 1px solid #e8e8e8;
+          }
+          .knife4j-word-title{
+              font-weight: 600;
+              font-size: 18px;
+              margin-top: 15px;
+              border-left: 3px solid #00ab6d;
+          }
+          .knife4j-word-api{
+              margin-top: 10px;
+          }
+          .knife4j-word-content{
+              margin-top: 10px;
+          }
+          .knife4j-word-code-editor{
+              border: #ccc 1px solid;
+              border-left-width: 4px;
+              background-color: #fefefe;
+              box-shadow: 0 0 4px #eee;
+              word-break: break-all;
+              word-wrap: break-word;
+              color: #444;
+          }
+          .knife4j-word-code-editor .string { color: green; }        /*字符串的样式*/
+          .knife4j-word-code-editor .number { color: darkorange; }    /*数字的样式*/
+          .knife4j-word-code-editor .boolean { color: blue; }        /*布尔型数据的样式*/
+          .knife4j-word-code-editor .null { color: magenta; }        /*null值的样式*/
+          .knife4j-word-code-editor .key { color: red; }            /*key值的样式*/
+          .knife4j-word-method{
+              font-size: 14px;
+              font-weight: 600;
+              margin-right: 10px;
+              text-align: center;
+              border-radius: 3px;
+              text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+          }
+          .knife4j-word-table{
+              width: 120%;
+              border: 1px solid #c7c4c4;
+              border-collapse: collapse;
+          }
+          .knife4j-word-table tr{
+              border: 1px solid #c7c4c4;
+              height: 40px;
+          }
+          .knife4j-word-table th{
+              border: 1px solid #c7c4c4;
+              background-color: #dfdada;
+          }
+          .knife4j-word-table td{
+              border: 1px solid #c7c4c4;
+          }
+      </style>
+  </head>
+  <body>
+  <div class="knife4j-word-body">
+<h1>1.项目说明</h1>
+<div class="knife4j-word-row">
+<div class="knife4j-word-line"><strong>标题</strong>:梁场进度系统_接口文档</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>简介</strong>:梁场进度系统_接口文档</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>作者</strong>:<code>zjbim</code></div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>HOST</strong>:bim.bnerc.com</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>basePath</strong>:/beam</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>termsOfService</strong>:</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>联系人</strong>:zjbim</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>Version</strong>:版本号:1.0.0</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>GroupName</strong>:default</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>分组Url</strong>:undefined</div>
+<div class="knife4j-word-divider"></div>
+<div class="knife4j-word-line"><strong>分组Location</strong>:/v2/api-docs</div>
+<div class="knife4j-word-divider"></div>
+</div>
+
+
+<h1>2.接口列表</h1>
+<h2>2.1app-controller</h2>
+
+
+
+
+<h3>2.1.1附件图片保存</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/attachment/addAttachment</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>multipart/form-data</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>fileType</td>
+<td>图片所归属的类型，进度填报的guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>linkId</td>
+<td>图片关联的类型，进度填报的guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>file</td>
+<td>图片，单张一个一个上传</td>
+<td>formData</td>
+<td>true</td>
+<td>file</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.2附件图片删除</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/attachment/deleteAttachment</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>fileUrl</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>linkId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>fileType</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.3H5---------------------------架梁进度分析，计划和实际按月度统计</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamErection/month</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>类型,0代表月度单个，1代表累积</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>开始时间</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>结束时间</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>beamTypeCode</td>
+<td>梁类型编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.4H5---------------------------架梁计划详情查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamErectionDetail/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>parentId</td>
+<td>线路的guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>code1</td>
+<td>分项编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureName</td>
+<td>分部分项名称</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.5H5---------------------------桥梁、线路查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamLine/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lineNo</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lineName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>professionType</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>professionTypeId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startMileKm</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>endMileKm</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startMileM</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>endMileM</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startPierNo</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>endPierNo</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>beamCount</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>farmingSituation</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>planStartDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>planEndDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.6H5---------------------------制梁进度分析，计划和实际按月度统计</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamMaking/month</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>类型,0代表月度单个，1代表累积</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>开始时间</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>结束时间</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>beamTypeCode</td>
+<td>梁类型编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.7H5---------------------------制梁计划查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamMakingTask/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>detail[0].searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].taskGuid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].structureCode</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].startDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].endDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].relStartDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].relEndDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail[0].resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>technologyUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>materialUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>releaseDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>marks</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.8H5---------------------------制梁计划详情查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamMakingTaskDetail/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>taskGuid</td>
+<td>任务guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureCode</td>
+<td>分项编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureName</td>
+<td>分部分项名称</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.9H5---------------------------台座信息查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamPedestal/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>页码</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>页面大小</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pedestalNo</td>
+<td>编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pedestalName</td>
+<td>名称</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pedestalType</td>
+<td>台座类型，为字典管理中对应的键值，动态生成模块中有</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.10H5---------------------------梁段类型查询，无需传参</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/beamType/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>processSetId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.11H5---------------------------字典数据信息查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/dictData/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>dictType</td>
+<td>字典类型</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.12H5---------------------------我的任务</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/getBeamMakingTaskByUser</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>type</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>mmap</td>
+<td>mmap</td>
+<td>query</td>
+<td>false</td>
+<td></td>
+<td>object</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.13H5---------------------------我的消息，更新查看状态</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/message/edit</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>reportId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>remindedDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remindedPerson</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isRead</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.14H5---------------------------我的消息</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/message/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>页码</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>页面大小</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>reportId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>companyId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>remindedDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remindedPerson</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isRead</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.15H5---------------------查询基本属性列表</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/modelPropBasic/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code1</td>
+<td>结构树编码code1</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.16H5-------------------全景地图查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/panorama/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>mapSrc</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.17H5---------------------------进度信息添加</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/add</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>qualityThreeInspectionComment.searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.processBusinessKey</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.processInstId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.taskInstId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.actionName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.activityCode</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.activityName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.msg</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.nextPerson</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.hopeToDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureType</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>processSetId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>processId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pedestalNo</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>awsFlag</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>endTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>fileListId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>picture</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startAws</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>estimatedTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>processStyle</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>processOrder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>processName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.18H5---------------------------进度填报初始化</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/add/init</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code1</td>
+<td>分布分项的code1</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.19H5---------------------------进度填报初始化【扫码放开】</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/add/init/scan</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code1</td>
+<td>分布分项的code1</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td>项目 id</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.20H5---------------------------进度信息修改保存</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/edit</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>qualityThreeInspectionComment.searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.processBusinessKey</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.processInstId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.taskInstId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.actionName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.activityCode</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.activityName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.msg</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.nextPerson</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>qualityThreeInspectionComment.hopeToDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>searchValue</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateBy</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>remark</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>guid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureType</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>processSetId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>processId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pedestalNo</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>awsFlag</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>projectId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>endTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>fileListId</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updateDate</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>createUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUser</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>updateUserid</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iorder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>isdelete</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved1</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string(date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved2</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved3</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved4</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resaved5</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>picture</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startAws</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>estimatedTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>processStyle</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>processOrder</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>processName</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.21H5---------------------------进度信息修改初始化</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/edit/init</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>guid</td>
+<td>进度信息的guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.22H5---------------------------进度填报信息删除</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/progressReport/remove</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>guid</td>
+<td>进度信息的guid</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.23H5---------------------------状态追踪信息类表</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/reportData/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code1</td>
+<td>结构树编码code1</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+
+
+<h3>2.1.24H5---------------------------结构树查询</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/beam/app/structure/list</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>页码</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>页面大小</td>
+<td>query</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>structureName</td>
+<td>分部分项名称</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>parentId</td>
+<td>父节点id，也即线路编号guid</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>code1</td>
+<td>分项编码</td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="4">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+
+</pre></div>
+</div>
+</div></body></html>

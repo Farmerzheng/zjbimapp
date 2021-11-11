@@ -5,7 +5,7 @@
       clearable
       placeholder="用户名"
       left-icon="contact"
-      @keyup.native.enter="$refs.password.focus()"
+      @keyup.enter="$refs.password.focus()"
     />
     <van-field
       ref="password"
@@ -15,14 +15,14 @@
       placeholder="密码"
       :left-icon="passwordType ? 'closed-eye' : 'eye-o'"
       @click-left-icon="showPassword"
-      @keyup.native.enter="handleLogin"
+      @keyup.enter="handleLogin"
     />
     <div class="mt15">
       <van-button
         type="primary"
         size="large"
         :loading="loading"
-        @click.native="handleLogin"
+        @click="handleLogin"
         >{{ loginText }}</van-button
       >
     </div>
@@ -30,56 +30,74 @@
 </template>
 
 <script>
-import { Toast } from 'vant'
-import { mapActions } from 'vuex'
-import { login } from '@/api/login'
+import { Toast } from "vant";
+import { mapActions } from "vuex";
+import { login } from "@/api/login";
 
 export default {
-  name: 'LoginForm',
+  name: "LoginForm",
   data() {
     return {
       loading: false,
-      loginText: '登录',
-      passwordType: 'password',
+      loginText: "登录",
+      passwordType: "password",
       loginForm: {
-        username: process.env.NODE_ENV == 'development' ? '18810395512' : '', //18810395512   17710647501
-        password: process.env.NODE_ENV == 'development' ? '123456' : '',
+        username: "", //18810395512
+        password: "",//123456
       },
+    };
+  },
+  mounted() {
+    console.log(process.env.NODE_ENV);
+    // 获取本地存储的用户名和秘密 
+    var userName = localStorage.getItem("username");
+    var passWord = localStorage.getItem("password");
+    if(userName&&passWord){
+      // 用户已经登录
+      
+      this.loginForm.username = userName;
+      this.loginForm.password = passWord
     }
+   
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(["login"]),
     showPassword() {
-      this.passwordType == ''
-        ? (this.passwordType = 'password')
-        : (this.passwordType = '')
+      this.passwordType == ""
+        ? (this.passwordType = "password")
+        : (this.passwordType = "");
     },
     async handleLogin() {
       if (!this.loginForm.username) {
-        Toast('账号不能为空')
-        return false
+        Toast("账号不能为空");
+        return false;
       }
       if (!this.loginForm.password) {
-        Toast('密码不能为空')
-        return false
+        Toast("密码不能为空");
+        return false;
       } else if (this.loginForm.password.length < 6) {
-        Toast('密码长度最少为6位')
-        return false
+        Toast("密码长度最少为6位");
+        return false;
       }
-      this.loading = true
-      this.loginText = '登录中...'
+      this.loading = true;
+      this.loginText = "登录中...";
       try {
-        let res = await login(this.loginForm)
+        let res = await login(this.loginForm);
         if (res.code !== 0) {
-          throw new Error(res.msg)
+          throw new Error(res.msg);
         } else {
+          console.log(res);
+          // 存储用户名和密码
+          localStorage.setItem("username", this.loginForm.username);
+          localStorage.setItem("password", this.loginForm.password);
+
           let {
             userName,
             phone,
             token,
             dept: { deptId, deptName },
             project: { sysProjectId, projectName },
-          } = res
+          } = res;
           this.login({
             userName,
             phone,
@@ -88,20 +106,20 @@ export default {
             deptName,
             projectName,
             projectId: sysProjectId,
-          })
-          Toast.success('登录成功')
-          this.loading = false
-          this.loginText = '登录'
-          this.$router.replace({ path: '/home/main' })
+          });
+          Toast.success("登录成功");
+          this.loading = false;
+          this.loginText = "登录";
+          this.$router.replace({ path: "/home/main" });
         }
       } catch (error) {
-        Toast.fail(error)
-        this.loading = false
-        this.loginText = '登录'
+        Toast.fail(error);
+        this.loading = false;
+        this.loginText = "登录";
       }
     },
   },
-}
+};
 </script>
 <style lang="scss">
 .login-main {

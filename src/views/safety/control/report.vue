@@ -152,6 +152,7 @@ export default {
 
     const onCancel = () => {}
     const formatList = ({ data }) => {
+      console.log(data);
       let list = []
 
       data.map((item) => {
@@ -173,10 +174,12 @@ export default {
           fileUrl: item.fileUrl,
         })
       })
+      console.log(list);
       state.list = list
     }
     const getFolderList = async () => {
       let res = await getReportFormList()
+      console.log(res);
       formatList(res)
     }
     const onSearch = async (val = null) => {

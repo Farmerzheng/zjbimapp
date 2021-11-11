@@ -2,9 +2,17 @@
   <layout title="台座" :left-arrow="true">
     <div class="pedestal-search">
       <van-field
-        style="margin-left: 10px"
         v-model="params.pedestalNo"
         placeholder="请输入台座编号"
+        @input="search"
+        @clear="search"
+        @blur="search"
+        clickable
+        clearable
+      ></van-field>
+      <van-field
+        v-model="params.pedestalName"
+        placeholder="请输入台座名称"
         @input="search"
         @clear="search"
         @blur="search"
@@ -23,23 +31,28 @@
         v-for="(item, index) in list"
         :key="index"
       >
-        <div class="pedestal-list-item__left">
-          {{ item.pedestal[1] }}
-        </div>
-        <div class="pedestal-list-item__right">
-          <div
-            class="pedestal-list-item__right-module"
-            v-for="(pe, index) in parseInt(item.pedestal[0])"
-            :key="index"
-          >
-            <span
-              @click="() => toDetail(item.structure[index])"
-              class="pedestal-list-item__right-module-active"
-              v-if="index < item.structure.length"
-              >{{ item.structure[index] }}</span
-            >
-            <span v-else>空闲</span>
+        <div class="pedestal-list-item-num">
+          <div class="pedestal-list-item-num__left">
+            {{ item.pedestal[1] }}
           </div>
+          <div class="pedestal-list-item-num__right">
+            <div
+              class="pedestal-list-item__right-module"
+              v-for="(pe, index) in parseInt(item.pedestal[0])"
+              :key="index"
+            >
+              <span
+                @click="() => toDetail(item.structure[index])"
+                class="pedestal-list-item__right-module-active"
+                v-if="index < item.structure.length"
+                >{{ item.structure[index] }}</span
+              >
+              <span v-else>空闲</span>
+            </div>
+          </div>
+        </div>
+        <div class="name">
+          {{ item.pedestal[2] }}
         </div>
       </div>
     </van-list>
@@ -59,11 +72,11 @@
   </layout>
 </template>
 <script>
-import { reactive, onMounted, toRefs, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { beamPedestal } from '@/api/beam'
-import AliSelect from '@/components/AliSelect.vue'
-import Scan from '@/components/scan.vue'
+import { reactive, onMounted, toRefs, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { beamPedestal } from "@/api/beam";
+import AliSelect from "@/components/AliSelect.vue";
+import Scan from "@/components/scan.vue";
 export default {
   components: { Scan, AliSelect },
   setup(props) {
@@ -72,75 +85,76 @@ export default {
       loading: true,
       finished: false,
       params: {
-        pedestalType: '',
-        pedestalNo: '',
+        pedestalType: "",
+        pedestalNo: "",
+        pedestalName: ""
       },
       scanbarShow: false,
-    })
-    const router = useRouter()
-    const route = useRoute()
-    state.params.pedestalType = route.query.pedestalType
+    });
+    const router = useRouter();
+    const route = useRoute();
+    state.params.pedestalType = route.query.pedestalType;
     const onLoad = async () => {
       if (state.finished) {
-        state.loading = false
-        return
+        state.loading = false;
+        return;
       }
-      let res = await beamPedestal(state.params)
-      state.list = res.data
-      state.loading = false
-      state.finished = true
-    }
+      console.log(state.params);
+      let res = await beamPedestal(state.params);
+      console.log(res);
+      state.list = res.data;
+      state.loading = false;
+      state.finished = true;
+    };
     const scanSuccess = async (value) => {
-      state.scanbarShow = false
-      state.loading = true
-      state.finished = false
+      state.scanbarShow = false;
+      state.loading = true;
+      state.finished = false;
       state.params.pedestalNo = value;
       // let params = Object.assign({ pedestalNo: value }, state.params)
-      let res = await beamPedestal(state.params)
-      console.log(res.data.length)
+      let res = await beamPedestal(state.params);
+      console.log(res.data.length);
       if (res.code != 0) {
-        Toast(res.msg)
-        return
+        Toast(res.msg);
+        return;
       } else {
-        state.list = res.data
-        state.loading = false
-        state.finished = true
+        state.list = res.data;
+        state.loading = false;
+        state.finished = true;
       }
-    }
+    };
     const toDetail = (guid) => {
       router.push({
-        path: '/beamReportData',
+        path: "/beamReportData",
         query: {
           code1: guid,
-          title: '台座信息',
+          title: "台座信息",
         },
-      })
-    }
+      });
+    };
     const search = async () => {
-      state.loading = true
-      state.finished = false
-      await onLoad()
-    }
-    onMounted(async () => {})
+      state.loading = true;
+      state.finished = false;
+      await onLoad();
+    };
+    onMounted(async () => {});
     return {
       ...toRefs(state),
       onLoad,
       toDetail,
       search,
       scanSuccess,
-    }
+    };
   },
-}
+};
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .pedestal-search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
   & > div {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    box-shadow: 0 0 0.13333rem rgb(0 0 0 / 30%);
+    border-radius: 0.13333rem;
+    margin: 0.3rem;
+    width: auto;
   }
 }
 .pedestal-list-item {
@@ -150,32 +164,33 @@ export default {
   border-radius: 5px;
   padding: 3px;
   font-size: 16px;
-  display: flex;
   align-items: center;
-  &__left {
-    flex-shrink: 0;
-    width: 100px;
-  }
-  &__right {
-    flex-grow: 1;
-    border: 1px dashed #ddd;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    &-module {
-      // border: 1px dashed #ddd;
-      border-bottom: 1px dashed #ddd;
-      overflow: hidden;
-      & > span {
-        display: inline-block;
-        padding: 5px;
-      }
-      &-active {
-        background-color: #ddd;
-        width: 100%;
-        font-weight: bold;
-      }
-      &:last-child {
-        border-bottom: none;
+  &-num {
+    &__left {
+      flex-shrink: 0;
+      width: 100px;
+    }
+    &__right {
+      flex-grow: 1;
+      border: 1px dashed #ddd;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      &-module {
+        // border: 1px dashed #ddd;
+        border-bottom: 1px dashed #ddd;
+        overflow: hidden;
+        & > span {
+          display: inline-block;
+          padding: 5px;
+        }
+        &-active {
+          background-color: #ddd;
+          width: 100%;
+          font-weight: bold;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
       }
     }
   }

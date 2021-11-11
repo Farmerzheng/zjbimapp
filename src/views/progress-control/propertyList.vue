@@ -17,7 +17,7 @@
         :title="item.descName"
         :name="index"
       >
-        <van-cell title="描述值" :value="item.descValue + item.unit" />
+        <van-cell title="描述值" :value="item.descValue" />
         <van-cell title="首压值" :value="item.resaved2" />
         <van-cell title="变更值" :value="item.resaved3" />
         <van-cell title="备注" :value="item.remark" />
@@ -28,7 +28,7 @@
               size="normal"
               round
               type="primary"
-              @click="toEdit(item.guid)"
+              @click="toEdit(item)"
               >编辑信息</van-button
             >
           </van-col>
@@ -69,18 +69,26 @@ export default {
       state.finished = true;
     });
     // 点击编辑
-    const toEdit = (guid) => {    
-        // 跳转路由
-        route.push({
-          path: "/editProperty",
-          query: { guid: guid },
-        });
-    
+    const toEdit = (item) => {
+      // 跳转路由
+      route.push({
+        path: "/editProperty",
+        query: {
+          guid: item.guid,
+          descName: item.descName,
+          descValue: item.descValue,
+          unit: item.unit,
+          remark:item.remark,
+          resaved2:item.resaved2,
+          resaved3:item.resaved3,
+          code1:item.code1
+        },
+      });
     };
 
     return {
       state,
-      toEdit
+      toEdit,
     };
   },
 };

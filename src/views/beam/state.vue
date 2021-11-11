@@ -34,6 +34,7 @@
       >
         <strong>{{ item.code1 }}</strong>
         <div>起止墩号：{{ item.startPier }}-{{ item.endPier }}</div>
+        <div>名称：{{item.sturctureName}}</div>
       </div>
     </van-list>
     <div style="position: fixed; bottom: 0; width: 100%">
@@ -124,6 +125,7 @@ export default {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 10px;
+  line-height: .8rem;
   font-size: 16px;
   & > strong {
     font-size: 20px;
