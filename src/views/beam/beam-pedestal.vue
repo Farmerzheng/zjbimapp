@@ -153,23 +153,24 @@ export default {
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #dcdfe6;
   border-radius: 5px;
   padding: 3px;
-  font-size: 0.4rem;
+  font-size: 0.3rem;
   line-height: 0.8rem;
 
   &-left {
     font-weight: bold;
-    width: 4rem;
+    width: 2.8rem;
     flex: none;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #dcdfe6;
     padding: 0 0.2rem;
     & > div {
     }
   }
   &-right {
     padding: 0 0.2rem;
+    width: 13.2rem;
   }
 }
 </style>

@@ -37,7 +37,7 @@ export default {
         .then(() => {
           logout().then((res) => {
             this.logout()
-            this.$router.replace({ path: '/login' })
+            this.$router.push({ path: '/login' })
           })
         })
         .catch(() => {})

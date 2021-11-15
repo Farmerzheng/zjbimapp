@@ -115,14 +115,13 @@ export default {
   align-items: center;
   margin: 10px;
   & > div {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      border: 1px solid #dcdfe6;
     border-radius: 5px;
   }
 }
 .state-list-item {
   margin: 10px;
-  // border: 1px solid red;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #dcdfe6;
   border-radius: 5px;
   padding: 10px;
   line-height: .8rem;

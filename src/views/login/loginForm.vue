@@ -52,6 +52,9 @@ export default {
     // 获取本地存储的用户名和秘密
     var userName = localStorage.getItem("username");
     var passWord = localStorage.getItem("password");
+
+    console.log(userName,passWord);
+    
     if (userName && passWord) {
       // 用户已经登录
 
