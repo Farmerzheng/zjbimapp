@@ -3,7 +3,17 @@
     <van-field
       style="margin-left: 10px"
       v-model="state.params.structureCode"
-      placeholder="请输入"
+      placeholder="请输入编码"
+      @input="search"
+      @clear="search"
+      @blur="search"
+      clickable
+      clearable
+    ></van-field>
+        <van-field
+      style="margin-left: 10px"
+      v-model="state.params.structureName"
+      placeholder="请输入名称"
       @input="search"
       @clear="search"
       @blur="search"
@@ -23,7 +33,8 @@
         :key="item"
       >
         <div class="erection-detail-list-item__head">
-          编号：{{ item.structureCode }}
+          <div> 编号：{{ item.structureCode }}</div>
+         <div>名称：{{item.resaved1}}</div>
         </div>
         <div>计划开始：{{ item.startDate }}</div>
         <div>计划结束：{{ item.endDate }}</div>
@@ -67,6 +78,7 @@ export default {
       params: {
         taskGuid: "",
         structureCode: "",
+        structureName:""
       },
     });
     const router = useRouter();
@@ -91,6 +103,7 @@ export default {
       state.finished = false;
       let res = await getList(state.params);
       if (res) {
+        console.log(res.data)
         state.list = res.data;
         state.loading = false;
         state.finished = true;

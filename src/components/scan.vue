@@ -2,166 +2,188 @@
   <div id="barcode" />
 </template>
 <script>
-import { imageHttpUrl } from '@/config/index'
+import { imageHttpUrl } from "@/config/index";
 export default {
-  name: 'scan',
+  name: "scan",
   props: {
     description: {
       type: String,
-      default: '请扫描二维码',
+      default: "请扫描二维码",
     },
   },
   data() {
     return {
-      code: '',
+      code: "",
       barcode: null,
       titleView: null,
       gobackView: null,
       descriptionView: null,
-    }
+    };
   },
   computed: {
     webview() {
-      return plus.webview.currentWebview()
+      return plus.webview.currentWebview();
     },
   },
   mounted() {
-    this.startScan()
+    this.startScan();
   },
   methods: {
     startScan() {
       if (!window.plus) {
-        this.$toast.fail('未找到插件')
-        this.goHistory()
-        return
+        this.$toast.fail("未找到插件");
+        this.goHistory();
+        return;
       }
 
       if (!this.titleView) {
-        this.initViews()
+        this.initViews();
       }
 
-      this.barcode = new plus.barcode.Barcode('barcode', [plus.barcode.QR], {
-        frameColor: '#00ff00',
-        scanbarColor: '#00ff00',
-      })
-      this.barcode.onmarked = this.onmarked
-      this.barcode.start()
+      this.barcode = new plus.barcode.Barcode("barcode", [plus.barcode.QR], {
+        frameColor: "#00ff00",
+        scanbarColor: "#00ff00",
+      });
+      this.barcode.onmarked = this.onmarked;
+      this.barcode.start();
 
-      this.titleView.show()
-      this.gobackView.show()
-      this.descriptionView.show()
+      this.titleView.show();
+      this.gobackView.show();
+      this.descriptionView.show();
     },
     initViews() {
       if (!window.plus) {
-        this.$toast.fail('未找到插件')
-        this.goHistory()
-        return
+        this.$toast.fail("未找到插件");
+        this.goHistory();
+        return;
       }
 
       this.titleView = new plus.nativeObj.View(
-        'scan-title-text',
+        "scan-title-text",
         {
-          top: '30px',
-          left: '30%',
-          width: '40%',
-          height: '40px',
+          top: "30px",
+          left: "30%",
+          width: "40%",
+          height: "40px",
         },
         [
           {
-            id: 'titleText',
-            tag: 'font',
-            text: '二维码',
+            id: "titleText",
+            tag: "font",
+            text: "二维码",
             textStyles: {
-              color: '#FFFFFF',
-              size: '18px',
+              color: "#FFFFFF",
+              size: "18px",
             },
           },
         ]
-      )
+      );
 
       this.gobackView = new plus.nativeObj.View(
-        'scan-goback-button',
+        "scan-goback-button",
         {
-          top: '22px',
-          left: '15px',
-          width: '40px',
-          height: '40px',
+          top: "22px",
+          left: "15px",
+          width: "40px",
+          height: "40px",
         },
         [
           {
-            id: 'gobackButton',
-            tag: 'img',
-            src: window.location.origin + imageHttpUrl + '/img/goback.png',
+            id: "gobackButton",
+            tag: "img",
+            src: window.location.origin + imageHttpUrl + "/img/goback.png",
             position: {
-              top: '20px',
-              width: '18px',
-              height: '18px',
+              top: "20px",
+              width: "18px",
+              height: "18px",
             },
           },
         ]
-      )
-      this.gobackView.addEventListener('click', this.goHistory, false)
+      );
+      this.gobackView.addEventListener("click", this.goHistory, false);
 
       this.descriptionView = new plus.nativeObj.View(
-        'scan-description-text',
+        "scan-description-text",
         {
-          bottom: '27%',
-          left: '30%',
-          width: '40%',
-          height: '40px',
+          bottom: "27%",
+          left: "30%",
+          width: "40%",
+          height: "40px",
         },
         [
           {
-            id: 'descriptionText',
-            tag: 'font',
+            id: "descriptionText",
+            tag: "font",
             text: this.description,
             textStyles: {
-              color: '#FFFFFF',
+              color: "#FFFFFF",
             },
           },
         ]
-      )
+      );
     },
     reScan() {
-      this.barcode.start()
+      this.barcode.start();
     },
     cancelScan() {
-      this.barcode.cancel()
-      this.barcode.close()
+      this.barcode.cancel();
+      this.barcode.close();
 
-      this.titleView.hide()
-      this.gobackView.hide()
-      this.descriptionView.hide()
+      this.titleView.hide();
+      this.gobackView.hide();
+      this.descriptionView.hide();
     },
     goHistory() {
       if (window.plus) {
-        this.cancelScan()
+        this.cancelScan();
       }
-      this.$emit('go-back')
+      this.$emit("go-back");
     },
     onmarked(type, result) {
       switch (type) {
         case plus.barcode.QR:
-          type = 'QR'
-          break
+          type = "QR";
+          break;
         case plus.barcode.EAN13:
-          type = 'EAN13'
-          break
+          type = "EAN13";
+          break;
         case plus.barcode.EAN8:
-          type = 'EAN8'
-          break
+          type = "EAN8";
+          break;
         default:
-          type = '其它' + type
-          break
+          type = "其它" + type;
+          break;
       }
 
       // this.code = result
-      console.log(result)
-      this.$emit('success', result)
-      this.cancelScan()
+      console.log(result);
+
+      let i = this.getParamArg(result);
+      let o = "";
+
+      void 0 !== i.code1
+        ? (o = i.code1)
+        : void 0 !== i.pedestalNo && (o = i.pedestalNo);
+
+      this.$emit("success", o);
+      this.cancelScan();
+    },
+    getParamArg(t) {
+      let e = t.substring(t.lastIndexOf("?") + 1),
+        i = e.length > 0 ? e.split("&") : [],
+        o = null,
+        s = "",
+        a = "",
+        n = {};
+      for (var c = 0; c < i.length; c++)
+        (o = i[c].split("=")),
+          (s = decodeURIComponent(o[0])),
+          (a = decodeURIComponent(o[1])),
+          s.length && (n[s] = a);
+      return n;
     },
   },
-}
+};
 </script>
 <style lang="scss">
 #barcode {

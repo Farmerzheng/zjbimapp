@@ -31,28 +31,19 @@
         v-for="(item, index) in list"
         :key="index"
       >
-        <div class="pedestal-list-item-num">
-          <div class="pedestal-list-item-num__left">
-            {{ item.pedestal[1] }}
-          </div>
-          <div class="pedestal-list-item-num__right">
-            <div
-              class="pedestal-list-item__right-module"
-              v-for="(pe, index) in parseInt(item.pedestal[0])"
-              :key="index"
-            >
-              <span
-                @click="() => toDetail(item.structure[index])"
-                class="pedestal-list-item__right-module-active"
-                v-if="index < item.structure.length"
-                >{{ item.structure[index] }}</span
-              >
-              <span v-else>空闲</span>
-            </div>
+        <div class="pedestal-list-item-left">
+          <div class="pedestal-list-item-left-top">{{ item.pedestal[1] }}</div>
+          <div class="pedestal-list-item-left-bottom">
+            {{ item.pedestal[2] }}
           </div>
         </div>
-        <div class="name">
-          {{ item.pedestal[2] }}
+        <div
+          class="pedestal-list-item-right"
+          v-for="(item2, index) in item.structure"
+          :key="index"
+        >
+          <div class="num">{{ item2 }}</div>
+          <div class="title">{{ item.structureName[index] }}</div>
         </div>
       </div>
     </van-list>
@@ -87,7 +78,7 @@ export default {
       params: {
         pedestalType: "",
         pedestalNo: "",
-        pedestalName: ""
+        pedestalName: "",
       },
       scanbarShow: false,
     });
@@ -118,6 +109,7 @@ export default {
         Toast(res.msg);
         return;
       } else {
+        // console.log(res.data)
         state.list = res.data;
         state.loading = false;
         state.finished = true;
@@ -158,41 +150,26 @@ export default {
   }
 }
 .pedestal-list-item {
+  display: flex;
+  justify-content: space-between;
   margin: 10px;
-  // border: 1px solid red;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 3px;
-  font-size: 16px;
-  align-items: center;
-  &-num {
-    &__left {
-      flex-shrink: 0;
-      width: 100px;
+  font-size: 0.4rem;
+  line-height: 0.8rem;
+
+  &-left {
+    font-weight: bold;
+    width: 4rem;
+    flex: none;
+    border-right: 1px solid #aaa;
+    padding: 0 0.2rem;
+    & > div {
     }
-    &__right {
-      flex-grow: 1;
-      border: 1px dashed #ddd;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      &-module {
-        // border: 1px dashed #ddd;
-        border-bottom: 1px dashed #ddd;
-        overflow: hidden;
-        & > span {
-          display: inline-block;
-          padding: 5px;
-        }
-        &-active {
-          background-color: #ddd;
-          width: 100%;
-          font-weight: bold;
-        }
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
+  }
+  &-right {
+    padding: 0 0.2rem;
   }
 }
 </style>

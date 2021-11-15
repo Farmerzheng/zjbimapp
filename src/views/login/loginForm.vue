@@ -43,22 +43,21 @@ export default {
       passwordType: "password",
       loginForm: {
         username: "", //18810395512
-        password: "",//123456
+        password: "", //123456
       },
     };
   },
   mounted() {
     console.log(process.env.NODE_ENV);
-    // 获取本地存储的用户名和秘密 
+    // 获取本地存储的用户名和秘密
     var userName = localStorage.getItem("username");
     var passWord = localStorage.getItem("password");
-    if(userName&&passWord){
+    if (userName && passWord) {
       // 用户已经登录
-      
+
       this.loginForm.username = userName;
-      this.loginForm.password = passWord
+      this.loginForm.password = passWord;
     }
-   
   },
   methods: {
     ...mapActions(["login"]),

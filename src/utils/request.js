@@ -15,10 +15,13 @@ service.interceptors.request.use(
     const projectId = getItem("projectId")
     const id = getItem("deptId")
 
-    // if (token) {
-    // config.headers.common.Authorization = token;
-    // }
+    // 验证token是否失效，若果失效，返回登录页面
+
+    // 构造字面量对象时使用展开语法 ...obj
+    // 如果对象的键名和变量名一致，直接把变量名扔入对象即可
     config.params = { ...config.params, token, projectId, id }
+
+    // console.log(config.params);
     return config;
   },
   error => Promise.reject(error)
