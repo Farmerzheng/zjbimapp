@@ -17,11 +17,11 @@
           <img class="group-grid-icon" :src="item.remark" />
         </template>
       </van-grid-item>
-      <van-grid-item text="全景地图" to="/beamPanorama">
+      <!-- <van-grid-item text="全景地图" to="/beamPanorama">
         <template #icon>
           <img class="home-grid-icon" :src="prefix + '/img/beam/qjdt.png'" />
         </template>
-      </van-grid-item>
+      </van-grid-item> -->
     </van-grid>
     <div class="group-title">进度信息</div>
     <van-grid :gutter="20" :column-num="4" square class="group-grid-container">

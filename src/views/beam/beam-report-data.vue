@@ -2,10 +2,14 @@
   <layout :title="title" :left-arrow="true">
     <header class="head">
       <strong>{{ headInfo.code1 }}</strong>
-      <div style="font-size: 14px">
-        所属桥梁：{{ headInfo.beamLineName }},所属墩号：{{
+      <div>名称：{{headInfo.sturctureName}}</div>
+      <div>
+        所属桥梁：{{ headInfo.beamLineName }},
+        <br>
+        所属墩号：{{
           headInfo.startPier + '-' + headInfo.endPier
         }}
+        <br>
         规格：{{ headInfo.beamTypeName }}
       </div>
     </header>
@@ -137,6 +141,7 @@ export default {
       if (res.code != 0) {
         Toast(res.msg)
       } else {
+        console.log(res.data[0])
         state.headInfo = res.data[0]
       }
       let reportRes = await reportData(state.params)
@@ -166,6 +171,10 @@ export default {
 .head {
   padding: 10px;
   font-size: 16px;
+  &>div{
+    font-size: .4rem;
+    line-height: .7rem;
+  }
 }
 .step-title {
   display: flex;

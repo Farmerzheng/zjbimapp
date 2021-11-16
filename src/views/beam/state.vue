@@ -76,6 +76,7 @@ export default {
         return
       }
       let res = await structure(state.params)
+      console.log(res.data)
       state.list = res.data
       state.loading = false
       state.finished = true
