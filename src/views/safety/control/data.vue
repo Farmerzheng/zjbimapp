@@ -21,8 +21,8 @@
       <van-cell
         v-for="(item,index) in state.list"
         :key="index"
-        :title="item.sturctureName"
-        @click="() => toDetail(item.code1)"
+        :title="item.name"
+        @click="() => toDetail(item)"
       />
     </van-list>
   </layout>
@@ -42,12 +42,14 @@ export default {
     const router = useRouter();
     const onLoad = async () => {
       let res = await getMeasurePointList();
+      // console.log(res.data)
       state.list = res.data;
       // 加载状态结束
       state.loading = false;
       state.finished = true;
     };
     const toDetail = (item) => {
+      // console.log()
       router.push({ path: "/surveyDataPoint", query: { guid: item.guid } });
     };
     const toAddSurveyData = ()=>{

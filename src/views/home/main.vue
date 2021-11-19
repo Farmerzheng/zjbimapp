@@ -154,7 +154,8 @@ export default {
       })
       getMenuList({ location: 'lastDynamic' }).then((res) => {
         state.lastNewsList = []
-        if (res.code == 0 && res.data[0].url == '1') {
+        if (res.code == 0 && res.data.length) {
+
           getQuestionList({
             pageSize: 2,
             page: 0,

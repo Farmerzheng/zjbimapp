@@ -29,7 +29,7 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
     response => {
-        console.log(response)
+        // console.log(response)
         const res = response.data;
         if (response.status !== 200) {
             store.dispatch('logout');
