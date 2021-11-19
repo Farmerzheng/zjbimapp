@@ -56,97 +56,109 @@ import {
   getWaringList,
   getDataStatistics,
   getstaticsDict,
-} from '@/api/control'
-import { Toast } from 'vant'
-import * as echarts from 'echarts'
-import { getOption } from './point-statistics-option'
+} from "@/api/control";
+import { Toast } from "vant";
+import * as echarts from "echarts";
+import { getOption } from "./point-statistics-option";
 export default {
   data() {
     return {
       params: {
-        startTime: '',
-        endTime: '',
-        guid: '',//19c38772-5aba-46dd-adf2-fd97dd05524d
-        yfieldValue: '',
-        xfieldValue: 'measure_date',
+        startTime: "",
+        endTime: "",
+        guid: "", //19c38772-5aba-46dd-adf2-fd97dd05524d
+        yfieldValue: "",
+        xfieldValue: "measure_date",
       },
-      searchDate: '',
+      searchDate: "",
       showPicker: false,
       minDate: new Date(2010, 0, 1),
       staticsEcharts: null,
       checkboxList: [],
       staticsList: [],
-    }
+    };
   },
   props: {
     guid: String,
   },
   mounted() {
-    this.params.guid = this.guid
-    this.getStaticsDict()
+    this.params.guid = this.guid;
+    this.getStaticsDict();
   },
   methods: {
     search() {
-      this.getDataStatistics()
+      this.getDataStatistics();
     },
     selectDateConfirm(date) {
-      const [start, end] = date
-      this.params.startTime = start.toLocaleDateString()
-      this.params.endTime = end.toLocaleDateString()
-      this.searchDate = `${this.params.startTime}至${this.params.endTime}`
-      this.showPicker = false
+      const [start, end] = date;
+      this.params.startTime = start.toLocaleDateString();
+      this.params.endTime = end.toLocaleDateString();
+      this.searchDate = `${this.params.startTime}至${this.params.endTime}`;
+      this.showPicker = false;
     },
     checkboxChange(names) {
       if (this.checkboxList.length < 1) {
-        Toast.fail('至少选择一个')
+        Toast.fail("至少选择一个");
       } else {
-        this.getDataStatistics()
+        this.getDataStatistics();
       }
     },
     async getStaticsDict() {
-      let res = await getstaticsDict({ guid: this.params.guid })
+      let res = await getstaticsDict({ guid: this.params.guid });
       if (res.code !== 0) {
-        Toast.fail(res.msg)
-        return false
+        Toast.fail(res.msg);
+        return false;
       }
       Object.keys(res.map).forEach((key) => {
         this.staticsList.push({
           text: res.map[key],
           value: key,
-        })
-      })
+        });
+      });
       //
-      this.checkboxList.push(this.staticsList[0].value)
-      this.getDataStatistics()
+      this.checkboxList.push(this.staticsList[0].value);
+      this.getDataStatistics();
     },
     initStatisticsEcharts(xData = [], yData = [], legend = []) {
-      let options = getOption(xData, yData, legend)
+      let options = getOption(xData, yData, legend);
       if (!this.staticsEcharts) {
-        this.staticsEcharts = this.getEchartsInstance('mainStatistics')
+        this.staticsEcharts = this.getEchartsInstance("mainStatistics");
       }
-      this.setEchartsOption(this.staticsEcharts, options)
+      this.setEchartsOption(this.staticsEcharts, options);
     },
     setEchartsOption(instance, options) {
-      instance.setOption(options)
+      instance.setOption(options);
     },
     getEchartsInstance(id) {
       echarts.init(document.getElementById(id)).dispose();
-      let ins = echarts.init(document.getElementById(id))
+      let ins = echarts.init(document.getElementById(id));
       return ins;
     },
     getDataStatistics() {
-      this.params.yfieldValue = this.checkboxList.join(',')
+      this.params.yfieldValue = this.checkboxList.join(",");
       getDataStatistics(this.params).then((res) => {
         if (res.code !== 0) {
-          Toast.fail(res.msg)
-          return false
+          Toast.fail(res.msg);
+          return false;
         }
-        const { legendList, xList, yList } = res
-        this.loading = false
-        this.finished = true
-        this.initStatisticsEcharts(xList, yList, legendList)
-      })
+        const { legendList, xList, yList } = res;
+        this.loading = false;
+        this.finished = true;
+        this.initStatisticsEcharts(xList, yList, legendList);
+      });
     },
   },
-}
+};
 </script>
+<style scoped>
+.mainstatistics {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 10rem;
+  height: 8rem;
+}
+</style>
