@@ -1,6 +1,7 @@
 <template>
   <div class="main-container nav-header">
     <van-nav-bar
+      class="zjbimapp-nav"
       fixed
       :title="title"
       :left-arrow="leftArrow"
@@ -8,8 +9,7 @@
       @click-left="$router.back"
     >
       <template #right>
-        <slot name="right"></slot>
-        
+        <slot name="right"></slot>        
       </template>
     </van-nav-bar>
     <slot></slot>
@@ -34,3 +34,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.zjbimapp-nav{
+  background-color:#eee
+}
+</style>

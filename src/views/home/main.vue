@@ -208,7 +208,6 @@ export default {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  height: calc(100vh + 70px);
   .home-swipe {
     height: 211px;
     border-radius: 10px;
